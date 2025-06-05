@@ -1,0 +1,98 @@
+
+
+body{
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    background-image: linear-gradient(to right, rgb(36, 4, 4), rgb(10, 0, 0));    
+
+}
+.box{
+    color:white ;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: rgb(0, 0, 0);
+    padding: 15px;
+    border-radius: 15px;
+    width:40% ;
+}
+
+fieldset{
+    border: 3px solid rgb(134, 1, 1);
+    box-shadow: 0px 0px 20px rgb(248, 8, 8);
+ }
+
+
+legend{
+    border: 1px solid rgb(248, 8, 8);
+    padding: 10px;
+    text-align: center ;
+    background-color: rgb(0, 0, 0);
+    box-shadow: red 0px 0px 20px;
+    border-radius:5px;
+           
+}
+
+ .inputBox{
+   position: relative;
+}
+
+.inputUser{
+    background: none;
+    border: none;
+    border-bottom: 1px solid white;
+    outline: none;
+    color: white;
+    font-size: 15px;
+    width: 100%;
+    letter-spacing: 2px;
+ }
+
+.labelInput{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    pointer-events: none;
+    transition: .5s;
+}
+
+.inputUser:focus ~ .labelInput,
+.inputUser:valid ~ .labelInput{
+    top: -20px;
+    font-size: 12px;
+  }
+
+
+.login{
+    text-decoration: none;
+    color: white;
+    font-size: 15px;
+    position: relative;
+    left: 10%;
+   
+}
+
+.btn{
+
+    height: 44px;
+    width: 15vw;
+    border: none;
+    background-color: rgb(255, 255, 255);
+    border-radius: 28px;
+    left: 10%;
+    margin-top: 40px;
+    font-size: 20px;
+    position: relative;
+    left: 30%;
+
+}
+
+
+.btn:hover{
+    background-color: rgb(138, 7, 7);
+    box-shadow: red 0px 0px 20px;
+    color: white;
+    cursor: pointer;
+}
+  
