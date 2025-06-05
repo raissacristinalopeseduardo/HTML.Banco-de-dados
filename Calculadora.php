@@ -1,32 +1,47 @@
 
 <?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $peso = floatval($_POST['peso']);
+    $altura = floatval($_POST['altura']);
 
-    $peso = $_POST['peso'];
+    if ($peso > 0 && $altura > 0) {
+        $imc = $peso / ($altura * $altura);
+        $imc = round($imc, 2);
 
-    $altura = $_POST['altura'];
+        echo "<h3>Seu IMC é: $imc</h3>";
 
-    $altura = bcpow($altura, 2, 2);
-
-    $massa = $peso / $altura;
-
-    $massa = round($massa);
-
-if($massa < 20) {
-
-    $mensagem = "Você está magro.";
-
-}elseif(($massa > 20) and ($massa < 25)) {
-
-    $mensagem = "Você está no peso ideal.";
-
-}else{
-
-    $mensagem = "Você está acima do peso.";
-
+        if ($imc < 18.5) {
+            echo "<p>Classificação: Abaixo do peso</p>";
+        } elseif ($imc >= 18.5 && $imc < 24.9) {
+            echo "<p>Classificação: Peso normal</p>";
+        } elseif ($imc >= 25 && $imc < 29.9) {
+            echo "<p>Classificação: Sobrepeso</p>";
+        } else {
+            echo "<p>Classificação: Obesidade</p>";
+        }
+    } else {
+        echo "<p>Por favor, insira valores válidos para peso e altura.</p>";
+    }
 }
-
-echo "Sua massa corporal é: <b>$massa</b> <br>";
-
-echo "Estado atual: <b>$mensagem</b>"
-
 ?>
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de IMC</title>
+</head>
+<body>
+    <h1>Calculadora de IMC</h1>
+    <form method="post" action="">
+        <label for="peso">Peso (kg):</label>
+        <input type="number" step="0.1" id="peso" name="peso" required>
+        <br><br>
+        <label for="altura">Altura (m):</label>
+        <input type="number" step="0.01" id="altura" name="altura" required>
+        <br><br>
+        <button type="submit">Calcular</button>
+    </form>
+</body>
+</html>
